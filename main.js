@@ -82,7 +82,7 @@ function pluck (array, string) {
 pluck(books, 'year');
 
 console.log(pluck(books, 'year'));
-// console.assert(pluck(books, 'author'));
+console.assert(pluck(books, 'author'));
 
 
 
@@ -114,7 +114,7 @@ console.assert(res.length === 2);
 // The find function should take an array and a callback function. It should return the first value in an array that returns true when executed with the callback.
 
 function find (array, callback) {
-	return reject(array, callback)[0];
+	return filter(array, callback)[0];
 }
 
 
@@ -122,7 +122,13 @@ var please = find(books, function (x) {
 	return x.year > 1900;
 });
 
-console.assert(please = { title: 'Cymbeline', author: 'Shakespeare', year: 1623 });
+console.assert(please.title === 'Death of a Salesman');
+
+var author = find (books, function (x) {
+	return x.author === "Shakespeare";
+});
+
+console.assert(author.title === 'Cymbeline');
 
 
 
